@@ -37,7 +37,8 @@ export async function GET(req) {
     const contacts = (peopleRes.data.connections || []).map(p => ({
       name: p.names?.[0]?.displayName || '',
       email: p.emailAddresses?.[0]?.value || '',
-      phone: p.phoneNumbers?.[0]?.value || ''
+      phone: p.phoneNumbers?.[0]?.value || '',
+      userId: userId,
     })).filter(c => c.name || c.email || c.phone);
     
 
